@@ -1,19 +1,16 @@
 import { ethers } from "hardhat";
 
-// CONTRACT DEPLOYED TO: 0x39ef98a05b53e45a081d87832cffdc5dc6009d66
-// OPENSEA LINK TO NFT: https://testnets.opensea.io/assets/rinkeby/0x39ef98a05b53e45a081d87832cffdc5dc6009d66/0
+// CONTRACT DEPLOYED TO GOERLI TESTNET: 0x1Fba2F5157B7849e28e161dD18D4b766eF00766d
 
 async function main() {
-  const Longs = await ethers.getContractFactory("Longs");
-  const LongsNFT = Longs.attach(
-    "0x39ef98a05b53e45a081d87832cffdc5dc6009d66"
+  const Lottery = await ethers.getContractFactory("Lottery");
+  const lottery = Lottery.attach(
+    "0x1Fba2F5157B7849e28e161dD18D4b766eF00766d"
   );
 
-  const saveMintTx = await LongsNFT.safeMint("0x4208a5f4717d8EebC2E00B853f52403247C40A0F", "ipfs://QmVxKAk54wJU1YoDZYXMNCHtqmk2XeDazW3ewKZQdoQAtN");
-
-  const NFTName = await LongsNFT.name();
-  console.log("Minting transaction receipit: ", saveMintTx)
-  console.log("NFT name: ", NFTName);
+  
+  const contractBal = await lottery.getBalance();
+  console.log("Contract Balance: ", contractBal);
 }
 
 main().catch((error) => {

@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
 
+// contract already deployed to goerli testnet 0x1Fba2F5157B7849e28e161dD18D4b766eF00766d
+
 contract Lottery {
     address public manager;
     address payable[] public players;
