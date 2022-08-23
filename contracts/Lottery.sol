@@ -47,5 +47,6 @@ contract Lottery {
         // Refactor code
         uint index = random() % players.length;
         players[index].transfer(getBalance());
+        players = new address payable[](0); // resetting the lottery
     }
 }
