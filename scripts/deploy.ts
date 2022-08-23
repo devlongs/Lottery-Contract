@@ -1,12 +1,12 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const Longs = await ethers.getContractFactory("Longs");
-  const LongsNFT = await Longs.deploy();
+  const Lottery = await ethers.getContractFactory("Lottery");
+  const lottery = await Lottery.deploy();
 
-  await LongsNFT.deployed();
+  await lottery.deployed();
 
-  console.log(`Longs NFT deployed to ${LongsNFT.address}`); // 0x39ef98a05b53e45a081d87832cffdc5dc6009d66
+  console.log(`Lottery contract is deployed to this address: ${lottery.address}`); 
 }
 
 main().catch((error) => {
